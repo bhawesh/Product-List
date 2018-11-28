@@ -7,29 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
      pageTitle : string = 'Product List';
+     imageWidth: number =50;
+     imageMargin: number =2;
+     showImage:boolean=false;
+     listFilter: string= 'Cart';
      products :any= [
        {
      productId:1,
-     productName:'Hammer',
+     productName:'Mobile',
      productCode:'123',
      releaseDate: '26 Nov 2018',
-     price: '10$',
-     starRating: '3.5'
+     price: '10',
+     starRating: '3.5',
+     imageUrl:'https://openclipart.org/download/182253/New-hTC-one-black.svg'
     },
     {
       productId:2,
-      productName:'Face Wash',
+      productName:'Umbrella',
       productCode:'124',
       releaseDate: '27 Nov 2018',
-      price: '10.5$',
-      starRating: '4.2'
-
+      price: '10.5',
+      starRating: '4.2',
+      imageUrl:'https://openclipart.org/download/226220/Umbrella-animation.svg'
     }
     
     ];
+   
   constructor() { }
 
   ngOnInit() {
   }
-
+  toogleImage():void{
+    this.showImage = !this.showImage;
+  }
 }
