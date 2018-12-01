@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {IProduct} from './product';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -11,13 +11,13 @@ export class ProductComponent implements OnInit {
      imageMargin: number =2;
      showImage:boolean=false;
      listFilter: string= 'Cart';
-     products :any= [
+     products :IProduct[] = [
        {
      productId:1,
      productName:'Mobile',
-     productCode:'123',
+     productCode:123,
      releaseDate: '26 Nov 2018',
-     price: '10',
+     price: 10,
      starRating: '3.5',
      imageUrl:'https://openclipart.org/download/182253/New-hTC-one-black.svg'
     },
