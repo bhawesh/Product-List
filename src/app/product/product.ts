@@ -1,9 +1,9 @@
 export interface IProduct{
     productId:number
      productName:string
-     productCode:number
+     productCode:string
      releaseDate: string
-     price: number,
+     price: string,
      starRating: string,
      imageUrl:string
 }
