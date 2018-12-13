@@ -10,6 +10,7 @@ import{StarRating} from '../shared/star.component';
 import { ProductDetailComponent } from './product/product-detail.component';
 import {RouterModule} from '@angular/router';
 import {WelcomeComponent} from './Home/Welcome.component';
+import { ProductDetailGuard } from './product/product-detail.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import {WelcomeComponent} from './Home/Welcome.component';
     HttpClientModule,
     RouterModule.forRoot([
      {path : 'product', component: ProductComponent},
-     {path : 'product/:id' , component: ProductDetailComponent},
+     {path : 'product/:id' ,canActivate: [ProductDetailGuard], component: ProductDetailComponent},
      {path :'Welcome' , component : WelcomeComponent},
      {path : '', redirectTo: 'welcome' , pathMatch : 'full' },
      {path : '**', redirectTo: 'welcome' , pathMatch : 'full' }
