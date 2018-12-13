@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IProduct} from './product';
 import { ProductServices } from './product.service';
 @Component({
-  selector: 'app-product',
+  
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
@@ -11,8 +11,8 @@ export class ProductComponent implements OnInit {
      imageWidth: number =50;
      imageMargin: number =2;
      showImage:boolean=false;
-     _listFilter: string
-
+     _listFilter: string;
+     errorMessage : string;
      get listFilter(): string{
         return this._listFilter;
      }
@@ -43,9 +43,17 @@ export class ProductComponent implements OnInit {
     
   }
 
-  ngOnInit() {
-   this.products=this.productservices.getProduct();
-   this.filteredProducts=this.products;
+  ngOnInit() :void{
+   this.productservices.getProduct().subscribe(
+   products => {
+     this.products= products;
+   this.filteredProducts = this.products;
+
+   },
+   error => this.errorMessage = <any>error
+
+   );
+  
   }
   toogleImage():void{
     this.showImage = !this.showImage;
